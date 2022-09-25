@@ -1,0 +1,2566 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/25/2022 4:18:51 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-L5DBSOO"
+  DTS:CreatorName="DESKTOP-L5DBSOO\Admin"
+  DTS:DTSID="{25602626-9367-4675-B481-A42CBA31D207}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{6744667D-942B-4A75-B748-20C4F3C6B044}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-L5DBSOO.Spa_Diego]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{13D002E6-F191-4E7A-89E1-2C736B671316}"
+      DTS:ObjectName="DESKTOP-L5DBSOO.Spa_Diego">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-L5DBSOO;Initial Catalog=Spa_Diego;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{13D002E6-F191-4E7A-89E1-2C736B671316}DESKTOP-L5DBSOO.Spa_Diego;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D5E5FFE2-90B2-49E9-A066-391E17B33698}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=M:\integration projects\Desafio1\Spa_Diego\Diego\SpaCentro_m20191007.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{075EDA0E-DD00-4EF3-9679-D6DC0F518ED4}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=M:\integration projects\Desafio1\Spa_Diego\Diego\SpaEscalon_i20191007.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{5FAE879F-90B1-4E2F-9F97-05120830A25E}"
+      DTS:ObjectName="Excel Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=M:\integration projects\Desafio1\Spa_Diego\Diego\SpaSantaTecla_m20191007.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{00089703-0358-487F-B9C2-EB93C27BA4C0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Agregado"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Agregado;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;3"
+              description="Agrega datos mediante funciones como Average, Sum, Count, Max y Min. Por ejemplo, se agrupan datos para calcular la suma de las ventas por producto o el promedio de visitas por día."
+              name="Agregado"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número aproximado de claves GROUP BY que produce la agregación. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 de valores de clave. No especificado indica que no se usó ningún valor de KeyScale."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el número exacto de claves GROUP BY que produce la agregación. Si se especifica un valor de KeyScale, el valor de Keys tiene prioridad."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número aproximado de valores distintos de una columna que cuenta la agregación de forma distintiva. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 valores de clave. No especificado indica que no se usa ningún valor de CountDistinctScale."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el número exacto de valores distintos de una columna que cuenta la agregación de forma distintiva. Si se especifica un valor de CountDistinctScale, el valor de CountDistinctKeys tiene prioridad."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje en el que puede ampliarse la memoria durante la agregación. Los valores válidos están comprendidos entre 1 y 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1]"
+                  name="Entrada de agregado 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[Sexo]"
+                      cachedDataType="r8"
+                      cachedName="Sexo"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[ingresos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingresos"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[PromVisit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PromVisit"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[Edad]"
+                      cachedDataType="r8"
+                      cachedName="Edad"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[Sauna]"
+                      cachedDataType="r8"
+                      cachedName="Sauna"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[Masaje]"
+                      cachedDataType="r8"
+                      cachedName="Masaje"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[Hidro]"
+                      cachedDataType="r8"
+                      cachedName="Hidro"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1].Columns[Yoga]"
+                      cachedDataType="r8"
+                      cachedName="Yoga"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1]"
+                  name="Salida de agregado 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el número aproximado de claves GROUP BY que produce la agregación. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 de valores de clave. No especificado indica que no se usó ningún valor de KeyScale."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Especifica el número exacto de claves GROUP BY que produce la agregación. Si se especifica un valor de KeyScale, el valor de Keys tiene prioridad."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sexo]"
+                      name="Sexo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[ingresos]"
+                      name="ingresos">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[PromVisit]"
+                      name="PromVisit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Edad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Edad]"
+                      name="Edad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sauna]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sauna]"
+                      name="Sauna">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Masaje]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Masaje]"
+                      name="Masaje">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Hidro]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Hidro]"
+                      name="Hidro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Yoga]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Yoga]"
+                      name="Yoga">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of id]"
+                      name="Copy of id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\DB SPA"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DB SPA"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[TotalClientes]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\DB SPA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-L5DBSOO.Spa_Diego]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-L5DBSOO.Spa_Diego]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Sexo]"
+                      cachedDataType="r8"
+                      cachedName="Sexo"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sexo]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Sexo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[ingresos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingresos"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ingresos]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ingresos]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[PromVisit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PromVisit"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[PromVisit]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[PromVisit]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Edad]"
+                      cachedDataType="r8"
+                      cachedName="Edad"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[edad]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Edad]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Sauna]"
+                      cachedDataType="r8"
+                      cachedName="Sauna"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sauna]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Sauna]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Masaje]"
+                      cachedDataType="r8"
+                      cachedName="Masaje"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Masaje]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Masaje]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Hidro]"
+                      cachedDataType="r8"
+                      cachedName="Hidro"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Hidro]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Hidro]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Yoga]"
+                      cachedDataType="r8"
+                      cachedName="Yoga"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Yoga]"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Yoga]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].Columns[Copy of id]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of id"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[id]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copy of id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[id]"
+                      dataType="wstr"
+                      length="50"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[sexo]"
+                      dataType="wstr"
+                      length="50"
+                      name="sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[ingresos]"
+                      dataType="r8"
+                      name="ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[PromVisit]"
+                      dataType="r8"
+                      name="PromVisit" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[edad]"
+                      dataType="i4"
+                      name="edad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Sauna]"
+                      dataType="i4"
+                      name="Sauna" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Masaje]"
+                      dataType="i4"
+                      name="Masaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Hidro]"
+                      dataType="i4"
+                      name="Hidro" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB].ExternalColumns[Yoga]"
+                      dataType="i4"
+                      name="Yoga" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\DB SPA.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\DB SPA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\DB SPA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\DB SPA.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Ordenar"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Ordenar;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Ordena los datos de entrada de manera ascendente o descendente cuando no es posible ordenarlos en su origen. Por ejemplo, se ordenan los datos de ventas por 'id. de cliente' antes de que se escriban en un archivo plano y se entreguen a otro departamento. Nota: no se recomienda realizar esta transformación para grandes flujos de datos."
+              name="Ordenar"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si la transformación Ordenar quita filas con valores de ordenación duplicados."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número máximo de subprocesos que se deben usar para la ordenación."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+                  name="Entrada de ordenación">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[id]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Sexo]"
+                      cachedDataType="r8"
+                      cachedName="Sexo"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sexo]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[ingresos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingresos"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[ingresos]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[PromVisit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PromVisit"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[PromVisit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Edad]"
+                      cachedDataType="r8"
+                      cachedName="Edad"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Edad]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Sauna]"
+                      cachedDataType="r8"
+                      cachedName="Sauna"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sauna]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Masaje]"
+                      cachedDataType="r8"
+                      cachedName="Masaje"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Masaje]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Hidro]"
+                      cachedDataType="r8"
+                      cachedName="Hidro"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Hidro]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación].Columns[Yoga]"
+                      cachedDataType="r8"
+                      cachedName="Yoga"
+                      lineageId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Yoga]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación para datos de caracteres."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el criterio de ordenación de la columna."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]"
+                  isSorted="true"
+                  name="Salida de ordenación">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Sexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Sexo]"
+                      name="Sexo">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sexo]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[ingresos]"
+                      name="ingresos"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[ingresos]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[PromVisit]"
+                      name="PromVisit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[PromVisit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Edad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Edad]"
+                      name="Edad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Edad]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Sauna]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Sauna]"
+                      name="Sauna">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Sauna]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Masaje]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Masaje]"
+                      name="Masaje">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Masaje]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Hidro]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Hidro]"
+                      name="Hidro">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Hidro]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Yoga]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación].Columns[Yoga]"
+                      name="Yoga">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el identificador de linaje de la columna de entrada que está asociada a esta columna de salida."
+                          name="SortColumnId">#{Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1].Columns[Yoga]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Spa Centro"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Spa Centro"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">SpaCentro_m20191007$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Spa Centro.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[id]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Sexo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Sexo]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Sexo]"
+                      name="Sexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[ingresos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[ingresos]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[ingresos]"
+                      name="ingresos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[PromVisit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[PromVisit]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[PromVisit]"
+                      name="PromVisit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Edad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Edad]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Edad]"
+                      name="Edad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Sauna]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Sauna]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Sauna]"
+                      name="Sauna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Masaje]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Masaje]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Masaje]"
+                      name="Masaje"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Hidro]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Hidro]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Hidro]"
+                      name="Hidro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Yoga]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Yoga]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Yoga]"
+                      name="Yoga"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[id]"
+                      dataType="wstr"
+                      length="255"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Sexo]"
+                      dataType="r8"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      name="ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      name="PromVisit" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Edad]"
+                      dataType="r8"
+                      name="Edad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Sauna]"
+                      dataType="r8"
+                      name="Sauna" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Masaje]"
+                      dataType="r8"
+                      name="Masaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Hidro]"
+                      dataType="r8"
+                      name="Hidro" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].ExternalColumns[Yoga]"
+                      dataType="r8"
+                      name="Yoga" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Sexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Sexo]"
+                      name="Sexo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[ingresos]"
+                      name="ingresos" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[PromVisit]"
+                      name="PromVisit" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Edad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Edad]"
+                      name="Edad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Sauna]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Sauna]"
+                      name="Sauna" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Masaje]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Masaje]"
+                      name="Masaje" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Hidro]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Hidro]"
+                      name="Hidro" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Yoga]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[Yoga]"
+                      name="Yoga" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Spa Escalon"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Spa Escalon"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">SpaEscalon_i20191007$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Spa Escalon.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[id]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Sexo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Sexo]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Sexo]"
+                      name="Sexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[ingresos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[ingresos]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[ingresos]"
+                      name="ingresos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[PromVisit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[PromVisit]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[PromVisit]"
+                      name="PromVisit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Edad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Edad]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Edad]"
+                      name="Edad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Sauna]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Sauna]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Sauna]"
+                      name="Sauna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Masaje]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Masaje]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Masaje]"
+                      name="Masaje"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Hidro]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Hidro]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Hidro]"
+                      name="Hidro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Yoga]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Yoga]"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Yoga]"
+                      name="Yoga"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[id]"
+                      dataType="wstr"
+                      length="255"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Sexo]"
+                      dataType="r8"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      name="ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      name="PromVisit" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Edad]"
+                      dataType="r8"
+                      name="Edad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Sauna]"
+                      dataType="r8"
+                      name="Sauna" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Masaje]"
+                      dataType="r8"
+                      name="Masaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Hidro]"
+                      dataType="r8"
+                      name="Hidro" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].ExternalColumns[Yoga]"
+                      dataType="r8"
+                      name="Yoga" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Sexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Sexo]"
+                      name="Sexo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[ingresos]"
+                      name="ingresos" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[PromVisit]"
+                      name="PromVisit" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Edad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Edad]"
+                      name="Edad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Sauna]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Sauna]"
+                      name="Sauna" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Masaje]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Masaje]"
+                      name="Masaje" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Hidro]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Hidro]"
+                      name="Hidro" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Yoga]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[Yoga]"
+                      name="Yoga" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Span Santa Tecla"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Span Santa Tecla"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">SpaSantaTecla_m20191007$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Span Santa Tecla.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[id]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Sexo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Sexo]"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Sexo]"
+                      name="Sexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[ingresos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[ingresos]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[ingresos]"
+                      name="ingresos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[PromVisit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[PromVisit]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[PromVisit]"
+                      name="PromVisit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Edad]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Edad]"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Edad]"
+                      name="Edad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Sauna]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Sauna]"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Sauna]"
+                      name="Sauna"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Masaje]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Masaje]"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Masaje]"
+                      name="Masaje"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Hidro]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Hidro]"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Hidro]"
+                      name="Hidro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Yoga]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Yoga]"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Yoga]"
+                      name="Yoga"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[id]"
+                      dataType="wstr"
+                      length="255"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Sexo]"
+                      dataType="r8"
+                      name="Sexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      name="ingresos" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      name="PromVisit" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Edad]"
+                      dataType="r8"
+                      name="Edad" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Sauna]"
+                      dataType="r8"
+                      name="Sauna" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Masaje]"
+                      dataType="r8"
+                      name="Masaje" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Hidro]"
+                      dataType="r8"
+                      name="Hidro" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].ExternalColumns[Yoga]"
+                      dataType="r8"
+                      name="Yoga" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Sexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Sexo]"
+                      name="Sexo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[ingresos]"
+                      name="ingresos" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[PromVisit]"
+                      name="PromVisit" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Edad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Edad]"
+                      name="Edad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Sauna]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Sauna]"
+                      name="Sauna" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Masaje]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Masaje]"
+                      name="Masaje" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Hidro]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Hidro]"
+                      name="Hidro" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Yoga]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[Yoga]"
+                      name="Yoga" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Unión de todo"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unión de todo;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Combina las filas de varios flujos de datos sin ordenarlos. Por ejemplo, devuelve filas a un flujo de datos después de corregir los errores. Si el orden es importante, se recomienda usar la transformación Mezclar."
+              name="Unión de todo"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+                  name="Entrada de Unión de todo 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Sexo]"
+                      cachedDataType="r8"
+                      cachedName="Sexo"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Sexo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[ingresos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingresos"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[ingresos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[PromVisit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PromVisit"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[PromVisit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Edad]"
+                      cachedDataType="r8"
+                      cachedName="Edad"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Edad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Sauna]"
+                      cachedDataType="r8"
+                      cachedName="Sauna"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Sauna]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Masaje]"
+                      cachedDataType="r8"
+                      cachedName="Masaje"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Masaje]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Hidro]"
+                      cachedDataType="r8"
+                      cachedName="Hidro"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Hidro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1].Columns[Yoga]"
+                      cachedDataType="r8"
+                      cachedName="Yoga"
+                      lineageId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel].Columns[Yoga]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Sexo]"
+                      cachedDataType="r8"
+                      cachedName="Sexo"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Sexo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[ingresos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingresos"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[ingresos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[PromVisit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PromVisit"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[PromVisit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Edad]"
+                      cachedDataType="r8"
+                      cachedName="Edad"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Edad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Sauna]"
+                      cachedDataType="r8"
+                      cachedName="Sauna"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Sauna]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Masaje]"
+                      cachedDataType="r8"
+                      cachedName="Masaje"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Masaje]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Hidro]"
+                      cachedDataType="r8"
+                      cachedName="Hidro"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Hidro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2].Columns[Yoga]"
+                      cachedDataType="r8"
+                      cachedName="Yoga"
+                      lineageId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel].Columns[Yoga]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3]"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[id]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="id"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[id]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[Sexo]"
+                      cachedDataType="r8"
+                      cachedName="Sexo"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Sexo]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[ingresos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ingresos"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[ingresos]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[PromVisit]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PromVisit"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[PromVisit]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[Edad]"
+                      cachedDataType="r8"
+                      cachedName="Edad"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Edad]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[Sauna]"
+                      cachedDataType="r8"
+                      cachedName="Sauna"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Sauna]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[Masaje]"
+                      cachedDataType="r8"
+                      cachedName="Masaje"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Masaje]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[Hidro]"
+                      cachedDataType="r8"
+                      cachedName="Hidro"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Hidro]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3].Columns[Yoga]"
+                      cachedDataType="r8"
+                      cachedName="Yoga"
+                      lineageId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel].Columns[Yoga]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Id. de linaje de columna de salida"
+                          name="OutputColumnLineageID">#{Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrada de Unión de todo 4">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1]"
+                  name="Salida de Unión de todo 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sexo]"
+                      name="Sexo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[ingresos]"
+                      name="ingresos" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[PromVisit]"
+                      name="PromVisit" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Edad]"
+                      name="Edad" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Sauna]"
+                      name="Sauna" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Masaje]"
+                      name="Masaje" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Hidro]"
+                      name="Hidro" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1].Columns[Yoga]"
+                      name="Yoga" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de agregado 1]"
+              endId="Package\Tarea Flujo de datos\Ordenar.Inputs[Entrada de ordenación]"
+              name="Salida de agregado 1"
+              startId="Package\Tarea Flujo de datos\Agregado.Outputs[Salida de agregado 1]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos\DB SPA.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de ordenación"
+              startId="Package\Tarea Flujo de datos\Ordenar.Outputs[Salida de ordenación]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 1]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Spa Centro.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+              endId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 2]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Spa Escalon.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+              endId="Package\Tarea Flujo de datos\Unión de todo.Inputs[Entrada de Unión de todo 3]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Span Santa Tecla.Outputs[Salida de origen de Excel]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de Unión de todo 1]"
+              endId="Package\Tarea Flujo de datos\Agregado.Inputs[Entrada de agregado 1]"
+              name="Salida de Unión de todo 1"
+              startId="Package\Tarea Flujo de datos\Unión de todo.Outputs[Salida de Unión de todo 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Tarea Flujo de datos\Spa Centro"
+          TopLeft="5.5,9.5" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Tarea Flujo de datos\Spa Escalon"
+          TopLeft="191.5,11.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Tarea Flujo de datos\Span Santa Tecla"
+          TopLeft="361.5,15.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Tarea Flujo de datos\Unión de todo"
+          TopLeft="181.5,115.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Tarea Flujo de datos\Agregado"
+          TopLeft="194.5,184.5" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Tarea Flujo de datos\Ordenar"
+          TopLeft="376.5,180.5" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="349.5,251.5" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+          TopLeft="71,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148.75,64"
+              Start="0,0"
+              End="148.75,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.8961625282167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.8961625282167"
+                    Point2="0,41.8961625282167"
+                    Point3="4,41.8961625282167" />
+                  <mssgle:LineSegment
+                    End="144.75,41.8961625282167" />
+                  <mssgle:CubicBezierSegment
+                    Point1="144.75,41.8961625282167"
+                    Point2="148.75,41.8961625282167"
+                    Point3="148.75,45.8961625282167" />
+                  <mssgle:LineSegment
+                    End="148.75,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel1]"
+          TopLeft="256.5,53.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel2]"
+          TopLeft="442,57.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.75,58"
+              Start="0,0"
+              End="-153.75,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9683972911964" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.9683972911964"
+                    Point2="0,37.9683972911964"
+                    Point3="-4,37.9683972911964" />
+                  <mssgle:LineSegment
+                    End="-149.75,37.9683972911964" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.75,37.9683972911964"
+                    Point2="-153.75,37.9683972911964"
+                    Point3="-153.75,41.9683972911964" />
+                  <mssgle:LineSegment
+                    End="-153.75,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de Unión de todo 1]"
+          TopLeft="255.25,157.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de agregado 1]"
+          TopLeft="318.5,203.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58,0"
+              Start="0,0"
+              End="50.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de ordenación]"
+          TopLeft="436,222.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="114,42"
+          Id="Package\Tarea Flujo de datos\DB SPA"
+          TopLeft="148.5,260.5" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="349.5,272.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-87,9"
+              Start="0,0"
+              End="-79.5,9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-39.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-39.5,0"
+                    Point2="-43.5,0"
+                    Point3="-43.5,4" />
+                  <mssgle:LineSegment
+                    End="-43.5,5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-43.5,5"
+                    Point2="-43.5,9"
+                    Point3="-47.5,9" />
+                  <mssgle:LineSegment
+                    End="-79.5,9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Spa Centro">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Spa Escalon">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Span Santa Tecla">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\DB SPA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

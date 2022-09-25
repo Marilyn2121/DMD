@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32901.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "FloreriaFiorella", "FloreriaFiorella\FloreriaFiorella.dtproj", "{09846494-2D86-46AC-B1BB-1012894E2AEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09846494-2D86-46AC-B1BB-1012894E2AEC}.Development|Default.ActiveCfg = Development
+		{09846494-2D86-46AC-B1BB-1012894E2AEC}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF51656A-7851-4F14-A978-702B247205E4}
+	EndGlobalSection
+EndGlobal
